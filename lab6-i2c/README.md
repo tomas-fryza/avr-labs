@@ -218,8 +218,8 @@ The goal of this task is to communicate with the DHT12 temperature and humidity 
        }
 
        // Timer1
-       TIM1_ovf_1sec();
-       TIM1_ovf_enable();
+       tim1_ovf_1sec();
+       tim1_ovf_enable();
 
        // Infinite loop
        while (1)

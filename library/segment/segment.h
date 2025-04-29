@@ -50,7 +50,7 @@
  * @brief  Configure SSD signals LATCH, CLK, and DATA as output.
  * @return none
  */
-void SEG_init(void);
+void seg_init(void);
 
 
 /**
@@ -62,13 +62,13 @@ void SEG_init(void);
  *         transmitted.
  * @return none
  */
-void SEG_update_shift_regs(uint8_t segments, uint8_t position);
+void seg_update_shift_regs(uint8_t segments, uint8_t position);
 
 
-/* SEG_clear */
+/* seg_clear */
 
 
-/* SEG_clk_2us */
+/* seg_clk_2us */
 
 
 /** @} */

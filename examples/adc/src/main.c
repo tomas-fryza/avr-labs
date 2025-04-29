@@ -55,8 +55,8 @@ void adc_init(void)
 void timer1_init(void)
 {
     // Configure 16-bit Timer/Counter1 to start ADC conversion
-    TIM1_ovf_33ms();
-    TIM1_ovf_enable();
+    tim1_ovf_33ms();
+    tim1_ovf_enable();
 }
 
 

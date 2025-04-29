@@ -204,16 +204,16 @@ This construct is commonly known as a wrapper `#ifndef`. When the header is incl
 
    | **Return** | **Function name** | **Function parameters** | **Description** |
    | :-: | :-- | :-- | :-- |
-   | `void` | `GPIO_mode_output` | `volatile uint8_t *reg, uint8_t pin` | Configure one output pin |
-   | `void` | `GPIO_mode_input_pullup` | `volatile uint8_t *reg, uint8_t pin` | Configure one input pin and enable pull-up resistor |
-   | `void` | `GPIO_write_low` | `volatile uint8_t *reg, uint8_t pin` | Write one pin to low value |
-   | `void` | `GPIO_write_high` | `volatile uint8_t *reg, uint8_t pin` | Write one pin to high value |
-   | `uint8_t` | `GPIO_read` | `volatile uint8_t *reg, uint8_t pin` | Read a value from input pin |
+   | `void` | `gpio_mode_output` | `volatile uint8_t *reg, uint8_t pin` | Configure one output pin |
+   | `void` | `gpio_mode_input_pullup` | `volatile uint8_t *reg, uint8_t pin` | Configure one input pin and enable pull-up resistor |
+   | `void` | `gpio_write_low` | `volatile uint8_t *reg, uint8_t pin` | Write one pin to low value |
+   | `void` | `gpio_write_high` | `volatile uint8_t *reg, uint8_t pin` | Write one pin to high value |
+   | `uint8_t` | `gpio_read` | `volatile uint8_t *reg, uint8_t pin` | Read a value from input pin |
 
    > **Note:** Suggestions for other features you can add are:
    >
-   > * `void GPIO_mode_input_nopull(volatile uint8_t *reg, uint8_t pin)` Configure one input pin without pull-up resistor
-   > * `void GPIO_toggle(volatile uint8_t *reg, uint8_t pin)` Toggle one pin value
+   > * `void gpio_mode_input_nopull(volatile uint8_t *reg, uint8_t pin)` Configure one input pin without pull-up resistor
+   > * `void gpio_toggle(volatile uint8_t *reg, uint8_t pin)` Toggle one pin value
 
    The register name parameter must be `volatile` to avoid a compiler warning. Note that the C notation `*variable` representing a pointer to memory location where the variable's **value** is stored. Notation `&variable` is address-of-operator and gives an **address** reference of variable.
 
@@ -222,11 +222,11 @@ This construct is commonly known as a wrapper `#ifndef`. When the header is incl
    {
        ...
        // Examples of various function calls
-       GPIO_mode_output(&DDRB, LED_BUILTIN);  // Set output mode in DDRB reg
+       gpio_mode_output(&DDRB, LED_BUILTIN);  // Set output mode in DDRB reg
        ...
-       GPIO_write_low(&PORTB, LED_BUILTIN);   // Set output low in PORTB reg
+       gpio_write_low(&PORTB, LED_BUILTIN);   // Set output low in PORTB reg
        ....
-       temp = GPIO_read(&PIND, BTN);          // Read input value from PIND reg
+       temp = gpio_read(&PIND, BTN);          // Read input value from PIND reg
        ...
    }
    ```
@@ -267,7 +267,7 @@ This construct is commonly known as a wrapper `#ifndef`. When the header is incl
 
 ## Challenges
 
-1. Complete declarations (`*.h`) and definitions (`*.c`) of GPIO suggested functions `GPIO_mode_input_nopull` and `GPIO_toggle`.
+1. Complete declarations (`*.h`) and definitions (`*.c`) of GPIO suggested functions `gpio_mode_input_nopull` and `gpio_toggle`.
 
 2. Connect at least five LEDs and one push button to the microcontroller and program an application in [Knight Rider style](https://www.youtube.com/watch?v=w-P-2LdS6zk). When you press and release a push button once, the LEDs starts to switched on and off; ensure that only one of LEDs is switched on at a time. Do not implement the blinking speed changing.
 

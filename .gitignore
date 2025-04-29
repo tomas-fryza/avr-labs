@@ -51,3 +51,6 @@ dkms.conf
 
 # User defined
 *.lss
+
+# Finder preferences on Mac
+.DS_Store

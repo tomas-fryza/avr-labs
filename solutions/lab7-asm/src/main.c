@@ -47,8 +47,8 @@
 // -- Function definitions -------------------------------------------
 void timer1_init(void)
 {
-    TIM1_ovf_33ms();
-    TIM1_ovf_enable();
+    tim1_ovf_33ms();
+    tim1_ovf_enable();
 }
 
 

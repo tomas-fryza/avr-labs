@@ -131,8 +131,8 @@ In this part, you will establish communication between a PC and an Arduino board
 1. In main function, disable the overflow interrupts of Timer 1 but let it counts.
 
    ```c
-   TIM1_ovf_1se();
-   // TIM1_ovf_enable()
+   tim1_ovf_1sec();
+   // tim1_ovf_enable()
    ```
 
 2. Use the `uart_getc` function to receive characters. Display the ASCII code of each received character in hexadecimal, decimal, and binary formats. Disable the Timer1 overflow interrupt and continuously read received characters in the main loop.

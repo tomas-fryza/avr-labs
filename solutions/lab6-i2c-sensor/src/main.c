@@ -33,8 +33,8 @@ volatile uint8_t dht12_values[5];
 // -- Function definitions -------------------------------------------
 void timer1_init(void)
 {
-    TIM1_ovf_1sec();
-    TIM1_ovf_enable();
+    tim1_ovf_1sec();
+    tim1_ovf_enable();
 }
 
 

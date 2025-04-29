@@ -28,9 +28,9 @@ int main(void)
     // Initialize USART to asynchronous, 8-N-1, 9600 Bd
     uart_init(UART_BAUD_SELECT(9600, F_CPU));
 
-    TIM1_ovf_1sec();
-    // TIM1_ovf_enable();
-    TIM0_ovf_16ms();
+    tim1_ovf_1sec();
+    // tim1_ovf_enable();
+    tim0_ovf_16ms();
 
     // Interrupts must be enabled, bacause of `uart_puts()`
     sei();

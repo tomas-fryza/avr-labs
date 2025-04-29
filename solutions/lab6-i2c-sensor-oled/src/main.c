@@ -59,8 +59,8 @@ void oled_setup(void)
 
 void timer1_init(void)
 {
-    TIM1_ovf_1sec();
-    TIM1_ovf_enable();
+    tim1_ovf_1sec();
+    tim1_ovf_enable();
 }
 
 

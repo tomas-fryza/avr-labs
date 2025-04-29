@@ -12,26 +12,26 @@
 
 // -- Function definitions -------------------------------------------
 /*
- * Function: GPIO_mode_output()
+ * Function: gpio_mode_output()
  * Purpose:  Configure one output pin.
  * Input(s): reg - Address of Data Direction Register, such as &DDRB
  *           pin - Pin designation in the interval 0 to 7
  * Returns:  none
  */
-void GPIO_mode_output(volatile uint8_t *reg, uint8_t pin)
+void gpio_mode_output(volatile uint8_t *reg, uint8_t pin)
 {
     *reg = *reg | (1<<pin);
 }
 
 
 /*
- * Function: GPIO_mode_input_pullup()
+ * Function: gpio_mode_input_pullup()
  * Purpose:  Configure one input pin and enable pull-up.
  * Input(s): reg - Address of Data Direction Register, such as &DDRB
  *           pin - Pin designation in the interval 0 to 7
  * Returns:  none
  */
-void GPIO_mode_input_pullup(volatile uint8_t *reg, uint8_t pin)
+void gpio_mode_input_pullup(volatile uint8_t *reg, uint8_t pin)
 {
     *reg = *reg & ~(1<<pin);  // Data Direction Register
     reg++;                    // Change pointer to Data Register
@@ -40,39 +40,39 @@ void GPIO_mode_input_pullup(volatile uint8_t *reg, uint8_t pin)
 
 
 /*
- * Function: GPIO_write_low()
+ * Function: gpio_write_low()
  * Purpose:  Write one pin to low value.
  * Input(s): reg - Address of Port Register, such as &PORTB
  *           pin - Pin designation in the interval 0 to 7
  * Returns:  none
  */
-void GPIO_write_low(volatile uint8_t *reg, uint8_t pin)
+void gpio_write_low(volatile uint8_t *reg, uint8_t pin)
 {
     *reg = *reg & ~(1<<pin);
 }
 
 
 /*
- * Function: GPIO_write_high()
+ * Function: gpio_write_high()
  * Purpose:  Write one pin to high value.
  * Input(s): reg - Address of Port Register, such as &PORTB
  *           pin - Pin designation in the interval 0 to 7
  * Returns:  none
  */
-void GPIO_write_high(volatile uint8_t *reg, uint8_t pin)
+void gpio_write_high(volatile uint8_t *reg, uint8_t pin)
 {
     *reg = *reg | (1<<pin);
 }
 
 
 /*
- * Function: GPIO_read()
+ * Function: gpio_read()
  * Purpose:  Read a value from input pin.
  * Input(s): reg - Address of Pin Register, such as &PINB
  *           pin - Pin designation in the interval 0 to 7
  * Returns:  Pin value
  */
-uint8_t GPIO_read(volatile uint8_t *reg, uint8_t pin)
+uint8_t gpio_read(volatile uint8_t *reg, uint8_t pin)
 {
     uint8_t temp;
 
@@ -88,9 +88,9 @@ uint8_t GPIO_read(volatile uint8_t *reg, uint8_t pin)
 
 
 /*
- * Function: GPIO_mode_input_nopull()
+ * Function: gpio_mode_input_nopull()
  */
-void GPIO_mode_input_nopull(volatile uint8_t *reg, uint8_t pin)
+void gpio_mode_input_nopull(volatile uint8_t *reg, uint8_t pin)
 {
     *reg = *reg & ~(1<<pin);  // Data Direction Register
     reg++;                    // Change pointer to Data Register
@@ -99,9 +99,9 @@ void GPIO_mode_input_nopull(volatile uint8_t *reg, uint8_t pin)
 
 
 /*
- * Function: GPIO_toggle()
+ * Function: gpio_toggle()
  */
-void GPIO_toggle(volatile uint8_t *reg, uint8_t pin)
+void gpio_toggle(volatile uint8_t *reg, uint8_t pin)
 {
     *reg = *reg ^ (1<<pin);
 }

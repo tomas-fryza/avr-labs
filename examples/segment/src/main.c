@@ -21,14 +21,14 @@ volatile uint16_t cnt;
 // -- Function definitions -------------------------------------------
 void timer1_init()
 {
-    TIM2_ovf_16ms();
-    TIM2_ovf_enable();
+    tim2_ovf_16ms();
+    tim2_ovf_enable();
 }
 
 void timer0_init()
 {
-    TIM0_ovf_4ms();
-    TIM0_ovf_enable();
+    tim0_ovf_4ms();
+    tim0_ovf_enable();
 }
 
 

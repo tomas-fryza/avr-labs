@@ -156,10 +156,10 @@ Study the function prototypes and macro defines in the `segment.h` header file.
 
 | **Return** | **Function name** | **Function parameters** | **Description** |
 | :-: | :-- | :-- | :-- |
-| `void` | `SEG_init` | `void` | Configure SSD signals LATCH, CLK, and DATA as output |
-| `void` | `SEG_update_shift_regs` | `uint8_t segments, uint8_t position` | Display segments at one position of the SSD |
-| `void` | `SEG_clear` | `void` | Turn off all segments at all positions of the SSD |
-| `void` | `SEG_clk_2us` | `void` | Generate one CLK signal period with a duration of 2&nbsp;us |
+| `void` | `seg_init` | `void` | Configure SSD signals LATCH, CLK, and DATA as output |
+| `void` | `seg_update_shift_regs` | `uint8_t segments, uint8_t position` | Display segments at one position of the SSD |
+| `void` | `seg_clear` | `void` | Turn off all segments at all positions of the SSD |
+| `void` | `seg_clk_2us` | `void` | Generate one CLK signal period with a duration of 2&nbsp;us |
 
 1. Define a function for updating the shift registers. Let the function takes two 8-bit variables as inputs: segments to be displayed and position of the display. Bit 0 of first input represents decimal point DP, bit 1 segment G, etc. The suggested structure of the subroutine is presented in [`segment.c`](../library/segment.c) source file. All proposed delay values are equal to 1&nbsp;us, although according to data sheet 74HC595 they may be smaller. Use delay library here for simplicity.
 
@@ -199,7 +199,7 @@ uint8_t segment_position[] = {
 
 ...
 /*--------------------------------------------------------------------*/
-void SEG_update_shift_regs(uint8_t segments, uint8_t position)
+void seg_update_shift_regs(uint8_t segments, uint8_t position)
 {
     uint8_t bit_number;
     segments = segment_value[segments];     // 0, 1, ..., 9
@@ -237,7 +237,7 @@ Use [git commands](https://github.com/tomas-fryza/digital-electronics-2/wiki/Use
 
 1. Try extending the decimal counter to four positions and display stopwatch values from 00.00 to 59.59.
 
-2. In segment library, program function `SEG_clear()`, which ensures that the entire display goes out, ie no segment will be switched on, and also the `SEG_clk_2us()` function, which will generate 1 period of a clock signal with a frequency of 500&nbsp;kHz.
+2. In segment library, program function `seg_clear()`, which ensures that the entire display goes out, ie no segment will be switched on, and also the `seg_clk_2us()` function, which will generate 1 period of a clock signal with a frequency of 500&nbsp;kHz.
 
 3. Modify the look-up table and program a cycling snake, such as [[4]](https://www.youtube.com/watch?v=5cIfiIujSPs) or [[5]](https://www.youtube.com/watch?v=pywOh2YC1ik).
 

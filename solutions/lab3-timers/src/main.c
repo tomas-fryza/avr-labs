@@ -27,16 +27,16 @@
 int main(void)
 {
     // Set output pins
-    GPIO_mode_output(&DDRB, LED_BUILTIN);
-    GPIO_mode_output(&DDRB, LED_EXT);
+    gpio_mode_output(&DDRB, LED_BUILTIN);
+    gpio_mode_output(&DDRB, LED_EXT);
 
     // Set Timer1 overflow to 262 ms and enable interrupt
-    TIM1_ovf_262ms();
-    TIM1_ovf_enable();
+    tim1_ovf_262ms();
+    tim1_ovf_enable();
 
     // Set Timer0 overflow to 16 ms and enable interrupt
-    TIM0_ovf_16ms();
-    TIM0_ovf_enable();
+    tim0_ovf_16ms();
+    tim0_ovf_enable();
 
     // Enables interrupts by setting the global interrupt mask
     sei();
@@ -60,7 +60,7 @@ int main(void)
  */
 ISR(TIMER1_OVF_vect)
 {
-    GPIO_toggle(&PORTB, LED_BUILTIN);
+    gpio_toggle(&PORTB, LED_BUILTIN);
 }
 
 
@@ -77,7 +77,7 @@ ISR(TIMER0_OVF_vect)
     {
         // Do this every 6 x 16 ms = 100 ms
         n_ovfs = 0;
-        GPIO_toggle(&PORTB, LED_EXT);
+        gpio_toggle(&PORTB, LED_EXT);
     }
     // Else do nothing and exit the ISR
 }

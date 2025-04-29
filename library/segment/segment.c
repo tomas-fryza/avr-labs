@@ -22,28 +22,28 @@
 
 /* Function definitions ----------------------------------------------*/
 /**********************************************************************
- * Function: SEG_init()
+ * Function: seg_init()
  * Purpose:  Configure SSD signals LATCH, CLK, and DATA as output.
  * Returns:  none
  **********************************************************************/
-void SEG_init(void)
+void seg_init(void)
 {
     /* Configuration of SSD signals */
-    GPIO_config_output(&DDRD, SEG_LATCH);
-    GPIO_config_output(&DDRD, SEG_CLK);
-    GPIO_config_output(&DDRB, SEG_DATA);
+    gpio_config_output(&DDRD, SEG_LATCH);
+    gpio_config_output(&DDRD, SEG_CLK);
+    gpio_config_output(&DDRB, SEG_DATA);
 }
 
 
 /**********************************************************************
- * Function: SEG_update_shift_regs()
+ * Function: seg_update_shift_regs()
  * Purpose:  Display segments at one position of the SSD.
  * Input:    segments - Segments to be displayed (abcdefgDP, active low)
  *           position - Position of the display where the segments are to 
  *                      be displayed (p3 p2 p1 p0 xxxx, active high)
  * Returns:  none
  **********************************************************************/
-void SEG_update_shift_regs(uint8_t segments, uint8_t position)
+void seg_update_shift_regs(uint8_t segments, uint8_t position)
 {
     uint8_t bit_number;
 
@@ -97,10 +97,10 @@ void SEG_update_shift_regs(uint8_t segments, uint8_t position)
 
 
 /**********************************************************************
- * Function: SEG_clear()
+ * Function: seg_clear()
  **********************************************************************/
 
 
 /**********************************************************************
- * Function: SEG_clk_2us()
+ * Function: seg_clk_2us()
  **********************************************************************/

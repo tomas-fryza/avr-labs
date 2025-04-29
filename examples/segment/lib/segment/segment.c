@@ -47,7 +47,7 @@ void seg_init(void)
 
 
 /*
- * Function: SEG_update_shift_regs()
+ * Function: seg_update_shift_regs()
  * Purpose:  Display segments at one position of the SSD.
  * Input:    segments - Segments to be displayed (abcdefgDP, active low)
  *           position - Position of the display where the segments are to 

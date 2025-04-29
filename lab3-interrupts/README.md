@@ -37,7 +37,7 @@ Consider an *n*-bit number that we increment based on the clock signal. If we re
 > t_{OVF} = \frac{1}{f_{CPU}}\cdot 2^{nbit}\cdot prescaler
 > ```
 
-1. Complete the `GPIO_toggle` function in `gpio.h` library from the previous lab.
+1. Complete the `gpio_toggle` function in `gpio.h` library from the previous lab.
 
 2. Calculate the overflow times for three Timer/Counter modules that contain ATmega328P if CPU clock frequency is 16&nbsp;MHz. Complete the following table for given prescaler values. Note that, Timer/Counter2 is able to set 7 prescaler values, including 32 and 128 and other timers have only 5 prescaler values.
 
@@ -120,7 +120,7 @@ The counter increments in alignment with the microcontroller clock, ranging from
    {
        ...
        // Enable overflow interrupt
-       TIM1_ovf_enable();
+       tim1_ovf_enable();
        ...
        // Enables interrupts by setting the global interrupt mask
        sei();

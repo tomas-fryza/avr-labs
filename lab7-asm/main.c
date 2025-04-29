@@ -42,8 +42,8 @@ int main(void)
     // NOTE: Add `monitor_speed = 115200` to `platformio.ini`
     uart_init(UART_BAUD_SELECT(115200, F_CPU));
 
-    TIM1_ovf_262ms();
-    TIM1_ovf_enable();
+    tim1_ovf_262ms();
+    tim1_ovf_enable();
 
     sei();
 

@@ -28,23 +28,23 @@
 int main(void)
 {
     // Set output pin(s) in Data Direction Register
-    GPIO_mode_output(&DDRB, LED_BUILTIN);
-    GPIO_mode_output(&DDRB, LED_EXT);
+    gpio_mode_output(&DDRB, LED_BUILTIN);
+    gpio_mode_output(&DDRB, LED_EXT);
 
     // Set pin(s) LOW in Data Register
-    GPIO_write_low(&PORTB, LED_BUILTIN);
-    GPIO_write_low(&PORTB, LED_EXT);
+    gpio_write_low(&PORTB, LED_BUILTIN);
+    gpio_write_low(&PORTB, LED_EXT);
 
     // Infinite loop
     while (1)
     {
-        if (GPIO_read(&PIND, BTN) == 0)
+        if (gpio_read(&PIND, BTN) == 0)
         {
             // Pause several milliseconds
             _delay_ms(SHORT_DELAY);
             // Invert LED in Data Register
-            GPIO_toggle(&PORTB, LED_BUILTIN);
-            GPIO_toggle(&PORTB, LED_EXT);
+            gpio_toggle(&PORTB, LED_BUILTIN);
+            gpio_toggle(&PORTB, LED_EXT);
         }
     }
 

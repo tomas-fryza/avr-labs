@@ -43,8 +43,8 @@ void lcd_setup(void)
     lcd_puts("00:00.0");
 
     // Set backlight at PB2
-    // GPIO_mode_output(&DDRB, PB2);
-    // GPIO_write_low(&PORTB, PB2);
+    // gpio_mode_output(&DDRB, PB2);
+    // gpio_write_low(&PORTB, PB2);
 
     // Custom character(s)
     // https://www.quinapalus.com/hd44780udg.html
@@ -61,8 +61,8 @@ void lcd_setup(void)
 void timer2_init(void)
 {
     // Configuration of 8-bit Timer/Counter2 for Stopwatch update
-    TIM2_ovf_16ms();
-    TIM2_ovf_enable();
+    tim2_ovf_16ms();
+    tim2_ovf_enable();
 }
 
 
